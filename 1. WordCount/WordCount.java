@@ -1,3 +1,6 @@
+/* 
+    This code is slightly adapted from http://wiki.apache.org/hadoop/WordCount
+*/
 package org.myorg;
         
 import java.io.IOException;
