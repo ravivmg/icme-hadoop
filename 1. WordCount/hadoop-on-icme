@@ -1,0 +1,21 @@
+Add the following to bash_profile
+
+HADOOP_HOME=/usr/lib/hadoop
+export HADOOP_HOME
+
+
+
+
+javac -classpath $HADOOP_HOME/hadoop-*-core.jar -d playground/classes playground/src/WordCount.java
+jar -cvf playground/wordcount.jar -C playground/classes/ .
+
+
+
+hadoop fs -rmr output
+hadoop fs -rmr input
+hadoop fs -copyFromLocal input input
+
+hadoop jar playground/wordcount.jar org.myorg.WordCount input output
+
+
+hadoop fs -cat output/part-*
